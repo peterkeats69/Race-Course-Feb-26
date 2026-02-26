@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Multi Course Race Calculator — 26 Feb 2026</title>
+<title>Multi Course Race Calculator — Beta 3M</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="manifest" href="./manifest.webmanifest">
 <meta name="theme-color" content="#0d355f">
@@ -28,7 +28,7 @@
 </style>
 </head>
 <body>
-<h2>Multi Course Race Calculator — 26 Feb 2026</h2>
+<h2>Multi Course Race Calculator — Beta 3M</h2>
 <p class="build">Includes: Trapezoid (60/70/80), Triangle, 90° Gybe, Windward-Leeward (with optional spreader 1a).</p>
 
 <div class="row">
@@ -105,7 +105,11 @@
   <label>Gate 4 Width (m)
     <input id="wlGate4W" type="number" value="30">
   </label>
- 
+  <label>Upwind offset from start-line midpoint
+ (m)
+    <input id="wlGateOff" type="number" value="93">
+  </label>
+
   <label style="font-weight:900">
     <input type="checkbox" id="wlUseSp" style="transform:scale(1.2);margin-right:8px">
     Use Spreader 1a
@@ -309,7 +313,7 @@ function compute(){
 
   if(t==='windwardleeward'){
     const gw=+el('wlGate4W').value||30;
-    const off=+el('GateOff').value||93;
+    const off = +(((el('gateOff')&&el('gateOff').value) || (el('wlGateOff')&&el('wlGateOff').value) || 93));
 
     // Gate 4 (Simple, start-line anchored)
     const gateC = add(pMid, scale(uA, off));
