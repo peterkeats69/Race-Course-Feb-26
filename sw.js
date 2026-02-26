@@ -1,4 +1,4 @@
-const CACHE_NAME = 'race-course-calculator-v1';
+const CACHE_NAME = 'race-course-calculator-26 February 2026';
 const ASSETS = [
   './',
   './index.html',
